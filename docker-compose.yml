@@ -1,0 +1,17 @@
+services:
+  catalogue:
+    build: ./catalogue
+    restart: unless-stopped
+
+  commande:
+    build: ./commande
+    restart: unless-stopped
+
+  gateway:
+    build: ./gateway
+    ports:
+      - "3000:3000"
+    restart: unless-stopped
+    depends_on:
+      - catalogue
+      - commande

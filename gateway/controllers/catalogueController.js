@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const CATALOGUE_URL = 'http://localhost:3001';
+const CATALOGUE_URL = 'http://catalogue:3001';
 
 export const getProducts = async (req, res, next) => {
     try {

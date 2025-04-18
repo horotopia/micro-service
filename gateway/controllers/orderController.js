@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const ORDER_URL = 'http://localhost:3002';
+const ORDER_URL = 'http://commande:3002';
 
 export const getOrders = async (req, res, next) => {
     console.log('GET /orders called');

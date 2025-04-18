@@ -4,19 +4,9 @@ import axios from 'axios';
 export const getOrders = async (req, res, next) => {
   console.log('GET /orders called');
   try {
-    const orders = getAllOrders();
-    console.log('Orders:', orders);
-    const { data: products } = await axios.get('http://localhost:3001/products');
-    const result = orders.map(order => {
-      const product = products.find(p => p.id === order.product.id);
-      return {
-        id: order.id,
-        product: product ? { id: product.id, name: product.name, price: product.price } : null,
-        quantity: order.quantity,
-        status: order.status
-      };
-    });
-    res.json(result);
+    const { data: products } = await axios.get('http://catalogue:3001/products');
+    const orders = getAllOrders(products);
+    res.json(orders);
   } catch (err) {
     console.error('Error in getOrders:', err);
     next(err);
