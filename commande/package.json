@@ -4,10 +4,15 @@
     "main": "index.js",
     "type": "module",
     "scripts": {
-        "start": "node index.js"
+        "start": "node index.js",
+        "test": "node --experimental-vm-modules node_modules/.bin/jest"
     },
     "dependencies": {
         "express": "^5.1.0",
         "axios": "^1.8.4"
+    },
+    "devDependencies": {
+        "jest": "^29.7.0",
+        "supertest": "^7.1.0"
     }
 }
